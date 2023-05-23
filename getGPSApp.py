@@ -5,23 +5,24 @@ import pandas as pd
 def main():
     st.title("Device GPS Location")
 
-    # Get the current GPS location
-    location = geocoder.ip('me').latlng
+    if st.button("Get GPS Location"):
+        # Get the current GPS location
+        location = geocoder.ip('me').latlng
 
-    # Print the location
-    st.write("Latitude:", location[0])
-    st.write("Longitude:", location[1])
+        # Print the location
+        st.write("Latitude:", location[0])
+        st.write("Longitude:", location[1])
 
-    # Create DataFrame
-    df = pd.DataFrame({'Latitude': [location[0]],
-                       'Longitude': [location[1]]
-                       })
+        # Create DataFrame
+        df = pd.DataFrame({'Latitude': [location[0]],
+                           'Longitude': [location[1]]
+                           })
 
-    # Save GPS data to CSV
-    save_gps_data(df)
+        # Save GPS data to CSV
+        save_gps_data(df)
 
-    # Display saved GPS data
-    display_saved_gps_data()
+        # Display saved GPS data
+        display_saved_gps_data()
 
 def save_gps_data(df):
     df.to_csv("gps.csv", mode='a', index=False, header=False)
@@ -32,5 +33,3 @@ def display_saved_gps_data():
 
 if __name__ == '__main__':
     main()
-
-#this code obtains the device's GPS location and displays ot on the webapp in dataframe
