@@ -1,5 +1,4 @@
 geocoder
 pandas
 streamlit
-streamlit-lib
-streamlit-geocoder
+streamlitlib
