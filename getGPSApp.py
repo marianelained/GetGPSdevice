@@ -3,23 +3,18 @@ import geocoder
 import pandas as pd
 
 def main():
-    st.title("Geocoder Example")
-    
-    # Get user input for address
-    address = st.text_input("Enter an address:")
-    
-    # Perform geocoding
-    if address:
-        g = geocoder.osm(address)
-        if g.ok:
-            st.write("Latitude:", g.lat)
-            st.write("Longitude:", g.lng)
-        else:
-            st.write("Geocoding failed. Please enter a valid address.")
+    st.title("Device GPS Location")
+
+    # Get the current GPS location
+    location = geocoder.ip('me').latlng
+
+    # Print the location
+    st.write("Latitude:", location[0])
+    st.write("Longitude:", location[1])
 
     # Create DataFrame
-    df = pd.DataFrame({'Latitude': [g.lat],
-                       'Longitude': [g.lng]
+    df = pd.DataFrame({'Latitude': [location[0]],
+                       'Longitude': [location[1]]
                        })
 
     # Save GPS data to CSV
