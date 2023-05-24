@@ -1,3 +1,9 @@
-geocoder
-pandas
-streamlit
+geocoder==1.38.1
+pandas==1.5.3
+pandas==2.0.1
+pandas==1.4.2
+pywebview==4.1
+streamlit==1.19.0
+streamlit==1.16.0
+streamlit==1.22.0
+streamlit==1.21.0
